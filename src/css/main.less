@@ -1,0 +1,51 @@
+@import "/module/global";
+@import "/module/normalize";
+
+
+
+.global-message{
+  font-size: 12px;
+  & when (@show-global-message = false){
+    display: none;
+  }
+
+  background-color: #52618a;
+  height: @global-message-height;
+  width: 100%;
+
+  color: #FFF;
+  a, span{
+    margin-top: 10px;
+    color: #FFF;
+    display: inline-block;
+  }
+
+  span{
+    margin: 0 10px 0 15px;
+  }
+}
+
+@import "/module/loading";
+@import "/module/project-menu";
+@import "/module/project-header";
+@import "/module/issue";
+@import "/module/editor";
+@import "/module/hack";
+@import "/module/login";
+@import "/module/project";
+@import "/module/home";
+@import "/module/jquery.dropdown.less";
+@import "/module/project-weekly-report";
+@import "/module/assets";
+@import "/module/print";
+@import "/module/github-markdown";
+@import "/module/project-tiles";
+@import "/module/form";
+@import "/module/other";
+@import "/module/stream";
+@import "/module/gitlab";
+//@import "./iconfont.css";
+@import "./font-awesome.css";
+@import "./colorbox.css";
+@import "./simditor.css";
+@import "../package/datetime/datetimepicker.css";
