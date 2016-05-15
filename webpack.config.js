@@ -57,7 +57,6 @@ var config = {
       "window.jQuery": "jquery",
       Simditor: 'simditor'
     }),
-    //new _webpack.optimize.UglifyJsPlugin({minimize: true}),
     new _webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js', Infinity)
   ],
   module: {
@@ -104,5 +103,16 @@ config.plugins.push(
 config.plugins.push(
   new ExtractTextPlugin('../css/main.css')
 );
+
+//产品环境下配置不同
+if(process.env.NODE_ENV === 'production'){
+  //需要压缩
+  config.plugins.push(
+    new _webpack.optimize.UglifyJsPlugin({minimize: true})
+  );
+
+  //产品环境的pubicPath必需设置为/js/，否则会导致bundle.js引出不对
+  config.output.publicPath = '/js/';
+}
 
 module.exports = config;
