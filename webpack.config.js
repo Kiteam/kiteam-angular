@@ -34,7 +34,7 @@ var config = {
   output: {
     filename: 'bundle.js',
     path: dest + '/js',
-    publicPath: '/'
+    publicPath: '/js/'
   },
   resolve: {
     root: [_path.resolve('./src/')],
@@ -112,7 +112,7 @@ if(process.env.NODE_ENV === 'production'){
   );
 
   //产品环境的pubicPath必需设置为/js/，否则会导致bundle.js引出不对
-  config.output.publicPath = '/js/';
+  //config.output.publicPath = '/js/';
 }
 
 module.exports = config;
