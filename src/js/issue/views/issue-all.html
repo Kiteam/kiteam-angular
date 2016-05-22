@@ -321,13 +321,14 @@
 
             <ul class="issue-split">
                 <li ng-repeat="item in issue.splitArr" issue-status-dropdown-action>
-                    <div class="issue-status" data-selected="{{item.status}}" ng-click="onClickStatus($event, item)">
-                        <i class="icon small" ng-class="item.status"></i>
-                    </div>
-                    <div class="title">{{item.title}}</div>
-
-                    <div class="operation">
+                    <div class="split-major">
+                        <div class="issue-status" data-selected="{{item.status}}" ng-click="onClickStatus($event, item)">
+                            <i class="icon small" ng-class="item.status"></i>
+                        </div>
+                        <div class="title">{{item.title}}</div>
                         <div class="ids">#{{item.issue_id}}-{{item.id}}</div>
+                    </div>
+                    <div class="operation">
 
                         <div class="member text-only" dropdown data-name="issue:split:{{item.id}}" data-text-container="label.display"  title="责任人" data-empty="{{item.realname || '责任人'}}">
                             <i class="icon owner"></i>
