@@ -62,6 +62,7 @@ define [
               id: result.id
               title: result.title
               description: result.description
+              visibility_level: result.visibility_level
               status: result.status
 
             $element.modal(showClose: false)

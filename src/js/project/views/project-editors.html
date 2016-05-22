@@ -42,6 +42,24 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <label class="caption">
+                                访问级别
+                            </label>
+                            <div class="inline">
+                                <label>
+                                    <input type="radio" value="0" name="visibility_level" ng-model="data.visibility_level" /> 私有
+                                </label>
+
+                                <label>
+                                    <input type="radio" value="10" name="visibility_level" ng-model="data.visibility_level"/> 团队内
+                                </label>
+                                <label>
+                                    <input type="radio" value="20" name="visibility_level" ng-model="data.visibility_level"/> 公开
+                                </label>
+                            </div>
+                        </div>
+
                         <div class="row control">
                             <button class="primary default" ng-click="onClickSave()">保存</button>
                             <button class="cancel default" ng-click="onClickCancel()">取消</button>
