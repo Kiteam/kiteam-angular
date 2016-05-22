@@ -77,6 +77,7 @@ define [
     template: _utils.extractTemplate('#tmpl-global-header-toolbar', _tmplGlobal)
     link: (scope, element, attrs)->
 
+      #事件
       scope.onClickSetting = (target)->
         $rootScope.$emit 'member:setting:show', target
 
@@ -97,6 +98,12 @@ define [
 
       scope.onClickLogout = ()->
         API.session().delete().then -> $location.path('/login')
+
+      scope.onClickLogin = ()-> $location.path('/login')
+
+      API.session().retrieve().then (result)->
+        scope.isLogin = result.isLogin
+
   ])
   #快捷键
   #<button hot-key  data-key="enter" ng-click="onClickSubmit()">

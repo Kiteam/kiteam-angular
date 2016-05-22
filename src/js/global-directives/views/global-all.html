@@ -30,7 +30,14 @@
                 <input type="text" placeholder="请输入搜索关键字" class="text" instant-search />
             </div>
             <div class="menu">
-                <div class="profile" dropdown>
+                <div class="profile" ng-if="!isLogin">
+                    <a ng-click="onClickLogin()">
+                        <i class="small icon"></i>
+                        <span>登录</span>
+                    </a>
+                </div>
+
+                <div class="profile" dropdown ng-if="isLogin">
                     <i class="small icon"></i>
                     <span>我的</span>
                     <div class="dropdown dropdown-tip">
@@ -62,6 +69,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <member-message-notifier></member-message-notifier>
                 <div class="help" dropdown>
                     <i class="small icon"></i>
