@@ -28,7 +28,7 @@ define [
             when 404
               NOTIFY.error "404 Not Found"
             when 500
-              NOTIFY.error "大事不好了，服务器发生错误啦"
+              NOTIFY.error "抱歉，服务器发生错误，请稍候再试"
             when 406
               message = data.message or data
               NOTIFY.error "提示：" + message
@@ -36,9 +36,9 @@ define [
               message = data.message or data
               NOTIFY.error "你没有权限操作此项功能"
             when 401
-              $location.path('/login')
+              NOTIFY.error "您需要登录才能使用此功能"
             when 413
-              NOTIFY.error "呐什么，文件好象太大了点..."
+              NOTIFY.error "文件好象太大，上传失败！"
             else
             #以后再考虑不同的处理
               console.error "未知错误"
