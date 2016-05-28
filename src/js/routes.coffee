@@ -22,8 +22,8 @@ define [
 
   _app.config(['$routeProvider', '$locationProvider', '$stateProvider', '$urlRouterProvider',
   ($routeProvider, $locationProvider, $stateProvider, $urlRouterProvider) ->
-    $locationProvider.html5Mode enabled: true, requireBase: false
 
+    $locationProvider.html5Mode enabled: true, requireBase: false
     templates =
       issueDetails: require('./issue/views/details.html')
       home: require('./views/home.html')
@@ -511,3 +511,17 @@ define [
     )
 
   ])
+
+  _app.run ($rootScope, $timeout, $state, API)->
+    #如果用户没有获取登录信息， 则先获取用户的登录信息，则继续流程
+    $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams)->
+      #没有获取到用户的信息，阻止用户
+      return if $rootScope.__member
+
+      #阻止流程
+      event.preventDefault()
+      #获取用户信息
+      API.session().retrieve().then (result)->
+        $rootScope.__member = result
+        $state.go(toState, toParams)
+    )
