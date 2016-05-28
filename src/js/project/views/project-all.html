@@ -251,7 +251,7 @@
     <!--项目列表的磁贴-->
     <textarea id="tmpl-project-tiles">
         <ul class="project-tiles" project-tile-resize>
-            <li class="create tile" ng-click="onClickCreate()">
+            <li class="create tile" ng-click="onClickCreate()" ng-show="isLogin">
                 <i class="icon"></i>
             </li>
 
@@ -271,7 +271,7 @@
 
                <div class="tile-toolbar">
                    <div class="description">{{project.description || '无项目说明' | limitTo: 38}}</div>
-                   <ul class="menu">
+                   <ul class="menu" ng-show="isLogin">
                        <li class="sub-menu favorite">
                            <button class="default" ng-click="onClickFavorite($event, project)">
                                <i class="small icon"></i>

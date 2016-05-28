@@ -67,6 +67,9 @@ define [
     template: _utils.extractTemplate '#tmpl-project-tiles', _tmplAll
     link: (scope, element, attrs)->
       condition = {}
+
+      scope.isLogin = $rootScope.__member.isLogin
+
       scope.onClickCreate = ->
         #弹出项目编辑器
         $rootScope.$broadcast 'project:editor:show'

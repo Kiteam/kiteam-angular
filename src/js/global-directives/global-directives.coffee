@@ -100,9 +100,7 @@ define [
         API.session().delete().then -> $location.path('/login')
 
       scope.onClickLogin = ()-> $location.path('/login')
-
-      API.session().retrieve().then (result)->
-        scope.isLogin = result.isLogin
+      scope.isLogin = $rootScope.__member.isLogin
 
   ])
   #快捷键
