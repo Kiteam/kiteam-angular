@@ -512,9 +512,9 @@ define [
 
   ])
 
-  _app.run ($rootScope, $timeout, $state, API)->
+  _app.run(['$rootScope', '$state', 'API', ($rootScope, $state, API)->
     #如果用户没有获取登录信息， 则先获取用户的登录信息，则继续流程
-    $rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState, fromParams)->
+    $rootScope.$on '$stateChangeStart', (event, toState, toParams, fromState, fromParams)->
       #没有获取到用户的信息，阻止用户
       return if $rootScope.__member
 
@@ -524,4 +524,4 @@ define [
       API.session().retrieve().then (result)->
         $rootScope.__member = result
         $state.go(toState, toParams)
-    )
+  ]);
