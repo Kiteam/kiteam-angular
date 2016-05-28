@@ -7,7 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var extractLESS = new ExtractTextPlugin('./css/main.less');
 
 //目标目录
-var dest = './.dest';
+var dest = './lib';
 
 //删除已经存在的目标
 (function(){
